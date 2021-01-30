@@ -30,7 +30,7 @@ export default function App(props) {
 			<h1>Jeopardy App</h1>
 			<img
 				src="https://innerstrength.zone/wp-content/uploads/2020/03/FI-FUN-2020-03-11_17-51-07-667x354.jpg"
-				alt="Will Ferrell"
+				alt="Will Ferrell as Alex Trebek"
 			/>
 			<button onClick={getData}>Get Question</button>
 			<h2>Points: {score}</h2>
