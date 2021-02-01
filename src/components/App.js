@@ -32,13 +32,16 @@ export default function App(props) {
 				src="https://innerstrength.zone/wp-content/uploads/2020/03/FI-FUN-2020-03-11_17-51-07-667x354.jpg"
 				alt="Will Ferrell as Alex Trebek"
 			/>
-			<button onClick={getData}>Get Question</button>
-			<h2>Points: {score}</h2>
-			<h2>Category: {category}</h2>
-			<h2>Question: {question}</h2>
-			<button onClick={toggleAnswer}>Show Answer</button>
-			<div className={toggle ? 'answer' : 'no-answer'}>
-				<h2>Answer: {answer.toUpperCase()}</h2>
+
+			<div className="game-data">
+				<h2>Points:</h2> <p>{score}</p>
+				<button onClick={getData}>Get Question</button>
+				<h2>Category:</h2> <p>{category}</p>
+				<h2>Question:</h2> <p>{question}</p>
+				<button onClick={toggleAnswer}>Show Answer</button>
+				<div className={toggle ? 'answer' : 'no-answer'}>
+					<h2>Answer:</h2> <p>{answer.toUpperCase()}</p>
+				</div>
 			</div>
 		</div>
 	);
