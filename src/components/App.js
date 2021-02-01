@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Jeopardy from './Jeopardy';
 
 export default function App(props) {
-	const [score, setScore] = useState(0);
 	const [category, setCategory] = useState('');
 	const [question, setQuestion] = useState('');
 	const [answer, setAnswer] = useState('');
 	const [toggle, setToggle] = useState(false);
+	const [count, setCount] = useState(0);
+
+	const increment = () => setCount(count + 1);
+	const decrement = () => setCount(count - 1);
 
 	const getData = async () => {
 		const response = await fetch(`http://jservice.io/api/random`);
@@ -18,7 +21,7 @@ export default function App(props) {
 		setAnswer(jeopardyData.answer);
 		setToggle(false);
 
-		console.log(data[0]);
+		console.log(data);
 	};
 
 	const toggleAnswer = () => {
@@ -34,10 +37,20 @@ export default function App(props) {
 			/>
 
 			<div className="game-data">
-				<h2>Points:</h2> <p>{score}</p>
+				<div className="points">
+					<h2>Points: {count}</h2>
+					<div className="points-buttons">
+						<button onClick={increment}>+</button>
+						<button onClick={decrement}>-</button>
+					</div>
+				</div>
 				<button onClick={getData}>Get Question</button>
-				<h2>Category:</h2> <p>{category}</p>
-				<h2>Question:</h2> <p>{question}</p>
+				<div className="category">
+					<h2>Category:</h2> <p>{category}</p>
+				</div>
+				<div className="question">
+					<h2>Question:</h2> <p>{question}</p>
+				</div>
 				<button onClick={toggleAnswer}>Show Answer</button>
 				<div className={toggle ? 'answer' : 'no-answer'}>
 					<h2>Answer:</h2> <p>{answer.toUpperCase()}</p>
