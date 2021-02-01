@@ -12,7 +12,7 @@ export default function App(props) {
 	const decrement = () => setCount(count - 1);
 
 	const getData = async () => {
-		const response = await fetch(`http://jservice.io/api/random`);
+		const response = await fetch(`https://jservice.io/api/random`);
 		const data = await response.json();
 		const jeopardyData = data[0];
 
